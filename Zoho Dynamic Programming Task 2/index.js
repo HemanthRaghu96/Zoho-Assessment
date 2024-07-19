@@ -78,7 +78,7 @@ const frequentElement = (arr, k) => {
   let key = Object.keys(obj);
   for (let i = 0; i < key.length; i++) {
     if (obj[key[i]] >= 2) {
-      result.push(i);
+      result.push(key[i]);
     }
   }
   return result;
