@@ -66,7 +66,6 @@ console.log(lengthOfLongestSubstring("abcabcbb"));
 
 const frequentElement = (arr, k) => {
   let obj = {};
-  let result = [];
   for (let i = 0; i < arr.length; i++) {
     let key = arr[i];
     if (obj[key] === undefined) {
@@ -76,12 +75,8 @@ const frequentElement = (arr, k) => {
     }
   }
   let key = Object.keys(obj);
-  for (let i = 0; i < key.length; i++) {
-    if (obj[key[i]] >= 2) {
-      result.push(key[i]);
-    }
-  }
-  return result;
+  key.sort((a, b) => obj[b] - obj[a]);
+  return key.slice(0,k);
 };
 console.log("Top K Frequent Elements : ");
 console.log(frequentElement([1, 1, 1, 2, 2, 3], 2));
